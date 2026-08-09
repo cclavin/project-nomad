@@ -536,6 +536,33 @@ export default class ServiceSeeder extends BaseSeeder {
       depends_on: null,
       metadata: JSON.stringify({ minMemoryMB: 2048, minDiskMB: 20480 }),
     },
+    {
+      service_name: SERVICE_NAMES.WAYFINDER,
+      friendly_name: 'Wayfinder',
+      powered_by: 'Wayfinder Briefing',
+      display_order: 28,
+      description:
+        'Plan a route from a coordinate — navigation grid, magnetic declination, and printable, GPX, and e-reader exports',
+      icon: 'IconCompass',
+      container_image: 'ghcr.io/cclavin/wayfinder-briefing:0.1.0',
+      source_repo: 'https://github.com/cclavin/wayfinder-briefing',
+      container_command: null,
+      // Static nginx SPA, no persistent data. Serves on 8080 inside the container.
+      container_config: JSON.stringify({
+        HostConfig: {
+          RestartPolicy: { Name: 'unless-stopped' },
+          PortBindings: { '8080/tcp': [{ HostPort: '8460' }] },
+        },
+        ExposedPorts: { '8080/tcp': {} },
+      }),
+      ui_location: '8460',
+      installed: false,
+      installation_status: 'idle',
+      is_dependency_service: false,
+      is_custom: false,
+      category: 'utility',
+      depends_on: null,
+    },
   ]
 
   async run() {

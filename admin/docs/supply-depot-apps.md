@@ -282,3 +282,21 @@ A browser-based client for [MeshCore](https://meshcore.io) radios. MeshCore is a
 **Your data:** There's nothing to set up or store on your NOMAD for this app. Your radio's settings live on the radio itself, and the app's preferences live in your browser. There's no NOMAD folder to manage.
 
 **Works offline:** Fully offline, which is the whole point of MeshCore. The app is served from your NOMAD and talks to your radio directly over USB or Bluetooth, never the internet.
+
+## Wayfinder {% #wayfinder %}
+
+Plans a route from a coordinate. Type a latitude and longitude and a radius, and it centers a map there with a navigation grid and a magnetic declination diagram, then lets you export a printable map, a GPX file for Gaia GPS or a Garmin device, or an image sized for an e-reader like a Kindle.
+
+**Official site:** [github.com/cclavin/wayfinder-briefing](https://github.com/cclavin/wayfinder-briefing) · **Source:** [github.com/cclavin/wayfinder-briefing](https://github.com/cclavin/wayfinder-briefing)
+
+**First time you open it:** No login, no account. Type a coordinate (decimal degrees or degrees/minutes/seconds), pick a 1, 3, or 5 mile radius, and the map centers there.
+
+**Where the map comes from:** Wayfinder looks for your NOMAD's own downloaded map regions first, so it works fully offline. If your NOMAD hasn't downloaded any map regions yet, or it can't be reached, it falls back to loading map tiles from the internet instead. A badge in the corner always tells you which one you're looking at. Download map regions from the Maps settings page before you plan on using this offline.
+
+**It's a road-and-trail map, not a contour map:** NOMAD's map data comes from OpenStreetMap, so Wayfinder shows roads, trails, water, and landcover, but no elevation contour lines. It's genuinely useful for compass navigation by terrain association with the grid and declination overlay, but it doesn't replace a printed USGS topo quad for reading terrain.
+
+**Printing a map you can use with a compass:** When you print, use "100%" or "Actual Size" in your print dialog rather than "Fit to page" — the printout includes a small ruler you can check with a tape measure to confirm the scale printed correctly.
+
+**Your data:** Nothing is stored on your NOMAD. Everything you export downloads straight to the device you're browsing from.
+
+**Works offline:** Fully offline once your NOMAD has map regions downloaded — the magnetic declination model is built into the app with no internet lookup needed.
